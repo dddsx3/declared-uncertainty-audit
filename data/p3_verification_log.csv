@@ -1,0 +1,56 @@
+group_id,item,doi,doi_checked_via,doi_exists,doi_status,source_title_or_document,location,quoted_or_computed_value,method,status
+G01,declared,10.5285/887ebbe3aa4345f3bbcbe2dd1834d955,doi.org + Crossref + DataCite,no_unresolvable,no_unresolvable,ESA CCI Sea Ice Thickness v4.0 (CryoSat-2 NH),global attribute 'doi' and variable radar_freeboard_uncertainty,0.012/0.0097/0.0081/0.0059 m,xarray median of per-band sigma,verified_local; DOI in metadata 404
+G01,actual,n/a,local n1/n3 outputs,n/a,n/a,n1/n3 ATL20 freeboard comparison,band summary tables,0.142/0.085/0.085/0.098 m,squared mean of freeboard difference per band,verified_local
+G02,declared,10.5285/887ebbe3aa4345f3bbcbe2dd1834d955,doi.org + Crossref + DataCite,no_unresolvable,no_unresolvable,ESA CCI Sea Ice Thickness v4.0,variable sea_ice_thickness_uncertainty,median 0.6163 m,xarray median over NH 2019-04,verified_local; DOI in metadata 404
+G02,actual,n/a,n1 ICEBIRD_METRIC.md,n/a,n/a,IceBird independent airborne EM,table of de-biased RMS,de-biased RMS 0.701-0.714 m,quoted from local n1 result table,verified_local
+"G01,G02",prior_evidence,10.5194/tc-18-5985-2024,OpenAlex/Crossref,yes,resolved,"Impact assessment of snow thickness, sea ice density and water density in CryoSat-2 SIT",abstract,products use climatologies or empirical values,quoted,verified_abstract
+G03,declared,10.5194/tc-11-1607-2017,Crossref/OpenAlex,yes,resolved,"Ricker et al. 2017, A weekly Arctic SIT record from merged CS2/SMOS",product algorithm description,analysis_error median 0.1196 m,xarray median over NH 2019-04,verified_local
+G03,actual,10.5194/tc-13-1187-2019,OpenAlex,yes,resolved,Assessment of contemporary satellite SIT products (TC 2019),Sect. 3.2 / Fig. 9,mean difference vs OIB = -0.22 m,quoted,verified_fulltext
+G04,declared,10.1109/JPROC.2010.2043918,Crossref,yes,resolved,"Entekhabi et al. 2010, SMAP mission",abstract,ubRMSE <= 0.04 m3/m3,quoted,verified_abstract
+G04,actual,10.1016/j.rse.2017.01.021,Crossref/OpenAlex,yes,resolved,"Colliander et al. 2017, SMAP CVS validation",abstract,'meets its expected performance of 0.04 m3/m3',quoted,verified_abstract
+G05,declared,10.1109/JPROC.2010.2043918,Crossref,yes,resolved,SMAP mission requirement,abstract,ubRMSE 0.04 m3/m3,quoted,verified_abstract
+G05,actual,10.1175/JHM-D-17-0063.1,OpenAlex,yes,resolved,"Reichle et al. 2017, SMAP L4 assessment",abstract,ubRMSE 0.038 m3/m3 at 9 km,quoted,verified_abstract
+G06,declared,10.5194/amt-11-3145-2018,OpenAlex + fulltext,yes,resolved,MODIS 3 km AOD validation (AMT 2018),"Sect. 2, Eq. (2)",EE = +/- (0.05 + 0.20 x AOD),quoted formula; evaluated at AOD=0.20,verified_fulltext
+G06,actual,10.5194/amt-11-3145-2018,OpenAlex + fulltext,yes,resolved,same paper,abstract + Table 1,"RMSE 0.15 (Terra), 0.13 (Aqua)",quoted,verified_fulltext
+G07,declared,none,GCOS-154,no_doi,no_doi,GCOS absolute uncertainty requirement,requirement statement,+/-0.5 LAI,quoted from secondary snippets (modis-land.nasa.gov),verified_secondary_no_doi
+G07,actual,10.3390/rs13224529,OpenAlex,yes,resolved,Validation of six LAI products in maize (RS 2021),abstract,MODIS RMSE <= 0.29,quoted,verified_abstract
+G08,declared,10.3390/rs16183358,OpenAlex,yes,resolved,Reprocessed OSTIA/CMEMS SST (RS 2024),abstract,target accuracy 0.1 K,quoted,verified_abstract
+G08,actual,10.3390/rs16183358,OpenAlex,yes,resolved,same paper,abstract,'within the target accuracy of 0.1 K',quoted; only an upper bound,verified_abstract_bound
+G09,declared,not verified,search only,no,no,SMOS mission requirement,n/a,0.1 psu (200 km/30 d),not found in accessed sources,not_assessable
+G09,actual,10.5194/os-9-183-2013,OpenAlex,yes,resolved,SMOS SSS validation (Ocean Science 2013),abstract,"0.3-0.4 psu tropical, 0.5 psu cold",quoted,verified_abstract
+G10,declared,10.5281/zenodo.7356944,Zenodo record,yes,resolved,GlobSnow ATBD,record landing page,not parsed,fetch returned empty,not_assessable
+G10,actual,10.5194/tc-14-1579-2020,OpenAlex + fulltext,yes,resolved,Evaluation of NH SWE products (TC 2020),Results,RMSE ~50 mm or less over Finland/Russia,quoted,verified_fulltext
+G11,declared,10.5194/tc-13-49-2019,OpenAlex + fulltext,yes,resolved,OSI-450 SIC CDR (TC 2019),Sect. 3 (sigma_tot description),sigma_tot qualitative only,numeric magnitude not in text,not_assessable
+G11,actual,10.5194/tc-13-3261-2019,OpenAlex + fulltext,yes,resolved,SIC intercomparison (TC 2019),Sect. 4,bias -0.4 to -1.0% at 100% ice,quoted,verified_fulltext
+G12,declared+actual,10.1016/j.rse.2022.112917,OpenAlex,yes,resolved,AGB map accuracy/uncertainty framework (RSE 2022),abstract only,no paired numbers,not accessible beyond abstract,not_assessable
+G13,declared+actual,10.5194/egusphere-egu26-1979,OpenAlex,yes,resolved,Refine IMERG uncertainty (EGU 2026 abstract),abstract,no paired numbers extracted,conference abstract only,not_assessable
+G14,declared,none,product ATBD page,no_doi,no_doi,MODIS MOD21 product page,product description,1 K accuracy,quoted; no DOI,verified_secondary_no_doi
+G14,actual,not verified,n/a,no,no,n/a,n/a,none,not attempted at matching scale,not_assessable
+G15,declared,10.1109/JPROC.2010.2043918,yes,yes,resolved,"Entekhabi et al. 2010, SMAP mission",abstract,ubRMSE <= 0.04 m3/m3,Crossref,verified
+G15,actual,10.1109/TGRS.2016.2561938,yes,yes,resolved,Assessment of the SMAP passive soil moisture product,abstract,0.038 m3/m3 unbiased root-mean-square difference; approaches the SMAP mission requirement of 0.040 m3/m3,Crossref,verified
+G16,declared,10.1109/TGRS.2012.2186971,yes,yes,resolved,Validation of the SMOS L2 soil moisture data in REMEDHUS,abstract/results,close to the SMOS accuracy objective of 0.04 m3 m-3,Crossref,verified
+G16,actual,10.1109/TGRS.2012.2186971,yes,yes,resolved,Validation of the SMOS L2 soil moisture data in REMEDHUS,abstract,RMSDc = 0.044 m3 m-3,Crossref,verified
+G17,declared,10.3390/rs10081314,yes,yes,resolved,Use of SMOS L3 soil moisture data: Pernambuco,abstract/results,expected 0.04 m3m-3 accuracy of the SMOS mission,Crossref,verified
+G17,actual,10.3390/rs10081314,yes,yes,resolved,Use of SMOS L3 soil moisture data: Pernambuco,abstract,average RMSD ... 0.071 m3m-3 (pixel),Crossref,verified
+G18,declared,10.3390/rs10081314,yes,yes,resolved,Use of SMOS L3 soil moisture data: Pernambuco,abstract/results,expected 0.04 m3m-3 accuracy of the SMOS mission,Crossref,verified
+G18,actual,10.3390/rs10081314,yes,yes,resolved,Use of SMOS L3 soil moisture data: Pernambuco,abstract,areal assessment ... 0.04 m3m-3,Crossref,verified
+G19,declared,10.1080/2150704X.2014.933277,yes,yes,resolved,Appraisal of SMOS soil moisture in a Mediterranean environment,abstract/results,SMOS accuracy objective of 0.04 m3 m-3,Crossref,verified
+G19,actual,10.1080/2150704X.2014.933277,yes,yes,resolved,Appraisal of SMOS soil moisture in a Mediterranean environment,abstract,RMSE = 0.116 m3 m-3 (0.110 after RFI filtering),Crossref,verified
+G20,declared,10.1080/01431160802036565,yes,yes,resolved,Radiance-based validation of the V5 MODIS LST product,abstract,accuracy of the MODIS LST product is better than 1 K,Crossref,verified
+G20,actual,10.1029/2009JD012038,yes,yes,resolved,Temperature-based and radiance-based validations of the V5 MODIS LST product,abstract,RMSE of +/-0.7 K,Crossref,verified
+G21,declared,10.5194/essd-16-3149-2024,yes,yes,resolved,SMOS-derived Antarctic thin sea ice thickness,abstract,product contains estimates of the sea-ice thickness and its uncertainty up to about 1 m,OpenAlex (numeric magnitude not in abstract),verified
+G22,actual,10.3390/rs16234565,yes,yes,resolved,Estimation of Arctic sea ice thickness using HY-2B,abstract,"RMSD 0.56 m (CS-SMOS), 0.68 m (CPOM), 0.47 m (CS-2), 0.69 m (PIOMAS), 0.79 m (validation data)",OpenAlex,verified
+G23,declared,10.5194/tc-13-49-2019,yes,yes,resolved,Version 2 of the EUMETSAT OSI SAF and ESA CCI SIC CDRs,Sect. 3,sigma_tot described qualitatively; numeric magnitude not extracted,full-text probe,verified
+G23,actual,10.5194/tc-13-3261-2019,yes,yes,resolved,Satellite passive microwave SIC intercomparison,Sect. 4,biased low by -0.4% to -1.0% (Arctic),full-text probe,verified
+G25,actual,10.1109/JSTARS.2017.2693120,yes,yes,resolved,Operational implementation of AMSR2 SIC estimates,abstract,bias 3.9% and RMSE 11.0% in the Arctic,OpenAlex,verified
+G26,actual,10.5194/tc-20-527-2026,yes,yes,resolved,Evaluation of the ESA CCI+ ESMR v1.1 SIC product,abstract,"mean difference -1.4% (median 0.0%), standard deviation 6.0%",OpenAlex,verified
+G27,actual,10.3390/rs15020422,yes,yes,resolved,"Sampling errors of Aquarius, SMAP, SMOS and Argo SSS",abstract,sampling errors about 0.02/0.03 psu at weekly scales,OpenAlex,verified
+G28,declared,10.1029/2022EA002516,yes,yes,resolved,ATBD for GEDI footprint AGBD,abstract,contains estimates of AGBD ... and associated prediction intervals,OpenAlex,verified
+G39,declared,10.1016/j.rse.2017.03.007,yes,yes,resolved,Retrieving landscape freeze/thaw state from SMAP,abstract,exceeding the 80% SMAP mission accuracy requirement,OpenAlex,verified
+G40,actual,10.1016/j.rse.2022.112988,yes,yes,resolved,Benchmarking algorithm changes to Snow CCI+ SWE,abstract,RMSE improved 12% (5 mm) relative to CCIv1,OpenAlex,verified
+G44,actual,10.1016/j.rse.2017.10.026,yes,yes,resolved,Global-scale assessment and combination of SMAP with ASCAT and AMSR2,abstract,"ubRMSD 0.0411, 0.0625 and 0.0708 m3 m-3 for SMAP, ASCAT and AMSR2",OpenAlex,verified
+G45,actual,10.1002/2016JD024834,yes,yes,resolved,Validation and expected error estimation of VIIRS AOT,abstract,RMSE of the biases as 0.12 over land and 0.06 over ocean,OpenAlex,verified
+G46,declared,10.1029/2004JD004706,yes,yes,resolved,MISR global AOD validation,abstract,about 2/3 fall within [0.05 or 20% x AOT],OpenAlex,verified
+G47,actual,10.1029/2025EA004745,yes,yes,resolved,Refine the uncertainty of GPM IMERG,abstract,reduced significant discrepancy frequency by 16%/6%/16%/17%,OpenAlex,verified
+G48,actual,10.1109/TGRS.2024.3386178,yes,yes,resolved,Uncertainty-based validation for Sentinel-3/SLSTR,abstract,KCRVs 1.91 K (S3A) and 1.71 K (S3B),OpenAlex,verified
+G10,actual,10.5194/tc-14-1579-2020,yes,yes,resolved,Evaluation of long-term NH SWE products,Results,RMSE ~50 mm or less,full-text probe,verified

@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.venv/
+*.aux
+*.blg
+*.log
+*.out
+*.spl
+*.synctex.gz
+.crossref_cache.json
+.DS_Store
+Thumbs.db

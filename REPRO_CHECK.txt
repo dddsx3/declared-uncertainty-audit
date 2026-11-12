@@ -1,0 +1,126 @@
+REPRO_CHECK.txt
+================
+P3 - Declared versus measured uncertainty in Earth observation products
+Target journal: International Journal of Remote Sensing (Taylor & Francis)
+Typeset with elsarticle at 12 pt for a format-free initial submission.
+Last verified: 2026-11-11
+
+Everything in the manuscript is produced by the scripts below, in the order
+given, from the two inherited CSV files. No number in the text, tables or
+figures is typed by hand: tables and figures are generated from
+data/p3_dataset.csv and data/stats.json, and the audit statistics are generated
+from p3_dataset.csv by code/audit_claims.py, which also writes data/claims.json.
+
+
+1. ENVIRONMENT
+-------------
+OS            : Windows 11 (x64)
+Python        : 3.13.14 (numpy, scipy, pandas, matplotlib)
+LaTeX         : MiKTeX 24.1, pdfTeX
+LaTeX class   : elsarticle (standard TeX distribution)
+Bibliography  : bibtex + elsarticle-harv.bst
+Network       : required only by code/lit_search.py, code/find_doi.py and
+                code/make_bib.py; the shipped references.bib and all numbers
+                build offline.
+
+
+2. BUILD ORDER
+--------------
+    cd code
+    python audit_claims.py --write   # repairs C2 + ledger, writes data/claims.json
+    python make_tables.py            # tex/table1..table5
+    python figures.py                # figures/fig01..fig06 (pdf + png)
+    python analysis.py               # data/stats.json (sets, IQR, priors)
+    cd ..
+    pdflatex manuscript ; bibtex manuscript ; pdflatex manuscript ; pdflatex manuscript
+
+audit_claims.py is idempotent: originals of the two CSVs it edits are copied to
+data/r12_baseline/ on first run and never overwritten again.
+
+
+3. WHAT WAS REPAIRED, AND WHY IT MATTERED
+-----------------------------------------
+(a) C2. The four columns locator_declared / quote_declared / locator_actual /
+    quote_actual were empty for all 50 rows. Under the paper's own definition of
+    C2 that left the audit with zero auditable objects. They are now populated
+    from data/p3_verification_log.csv, which already recorded, for each group it
+    covers, the locator and the reading taken there. Coverage after repair:
+    55 cells filled, 17 of the 17 admitted rows carry a locator (G18's declared
+    row cites the same sentence and DOI as G17).
+
+(b) same_product. The old text said the field "is one throughout"; the data give
+    1 for the 17 admitted rows and empty for the other 33, which have no
+    declaration to compare. The text now says exactly that.
+
+(c) Ledger. recommended_use is now a function of the admission verdict and of
+    parity, computed by audit_claims.recommend(). Before: 7 replace / 5 do-not-use
+    / 5 retain, with four of the seven "replace" rows being rows the audit itself
+    judged non-comparable. After: 6 replace / 2 retain (ratio exactly one) /
+    3 statistic caveat / 3 support caveat / 3 do-not-use-as-sigma.
+
+(d) G01. The old text called 0.0915 m a thickness error and reported a "stage
+    contrast 9.0". Both 0.0089 and 0.0915 are freeboard-stage numbers
+    (actual_metric = RMS of freeboard difference, stage_actual = freeboard), so
+    their ratio 0.0973 is a statistic mismatch, not a stage contrast. Mechanism 2
+    is rewritten around the quantity that is attributable: the same product at
+    thickness stage gives 0.6163 against 0.701, ratio 0.879, so the ratio of the
+    two ratios is 9.0 and the extreme under-report is a labelling effect.
+
+(e) Family coverage. "Eight families have no assessable object" -> ten (the CSV
+    gives 16 families, 6 with at least one assessable object).
+
+(f) Stratification. The group sizes were 3/2/6 with medians 1.000/1.576/0.721.
+    Recomputed: n = 3/3/8 with medians 1.000/1.429/0.721, and the bootstrap
+    contrast between score<=1 (n=3) and score>=2 (n=11) is 0.821 (0.471, 1.361),
+    not 0.644 (0.345, 1.109).
+
+(g) Counts. "26 a footprint mismatch" -> 24 among the 36 non-assessable rows
+    (32 among all 50); "33 have no locatable declared value" -> 33 have no
+    declared value, since the locator is now present where a value exists.
+
+
+4. EXPECTED VALUES OF THE LAST RUN
+----------------------------------
+audit_claims.py prints, and data/claims.json records:
+
+    objects 50 | admitted 17 | ratio-definable 14 | auditable 8
+    C2: 54 cells filled; 16 of 17 admitted rows carry a locator; missing ['G18']
+    same_product: 17/17 admitted = 1, 0 non-assessable empty
+    families 16, without assessable 10, with 6
+    core5 median 0.879 [0.544, 1.053] n=5
+    A7 geomean 0.888 CI (0.627, 1.140)
+    A8 median 1.000 [0.345, 1.429] n=8
+    all14 geomean 0.735 CI (0.496, 1.011)
+    sign test: 3 parity, 7 under, 4 over, p=0.549
+    score 1: n=3 median 1.0000 ; score 2: n=3 median 1.4286 ; score 3: n=8 median 0.7213
+    spearman rho=-0.494 p=0.073
+    prior contrast: low n=3 geo 0.858 | high n=11 geo 0.705 | ratio 0.821 (0.471, 1.361)
+    G01: declared 0.0089 (freeboard) vs actual 0.0915 (freeboard, RMS) ratio 0.0973
+    G02: declared 0.6163 vs actual 0.7010 ratio 0.8792
+    ratio of ratios 9.04 | declared ratio 69.2
+
+PDF: 48 pages, 0 errors, 0 undefined references, 0 overfull boxes.
+
+
+5. FILES
+--------
+data/p3_dataset.csv              50 objects, 59 columns (the master table)
+data/p3_declared_ledger.csv      17-row correction ledger (Table 4)
+data/p3_verification_log.csv     54 verification records (C2 source)
+data/p3_reconciliation.csv       50-row reconciliation with the inherited core
+data/p3_extension_columns.csv    the 28 added columns alone
+data/claims.json                 every number quoted in the text, recomputed
+data/stats.json                  sets, IQR normalisation, prior correlation
+data/r12_baseline/               the two CSV files as received, before repair
+tex/table1..table5.tex           generated tables
+figures/fig01..fig06             generated figures (pdf + 300 dpi png)
+
+
+6. KNOWN LIMITS
+---------------
+- G18's declared side is logged to the same abstract sentence as G17, verified
+  through the same DOI; the verification log now carries both rows (55 records).
+- The stress test in Sect. 3.8 is a single zero-context reader, N=1; it is
+  reported as a reliability check, not as an estimate of inter-rater agreement.
+- No repository DOI has been minted. The data and code are citable through the
+  article until one exists.

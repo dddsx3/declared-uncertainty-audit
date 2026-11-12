@@ -1,0 +1,60 @@
+column,group,filled,of,meaning
+group_id,identification,50,50,"audit object identifier, G01-G50"
+variable,identification,50,50,"Earth system variable, collapsed to 16 families"
+product,identification,50,50,product name as published
+product_version,identification,50,50,version label of the product audited
+validation_reference,identification,50,50,independent reference behind the measured error
+declared_value,declaration,17,50,numeric sigma as published; empty if none is locatable
+declared_unit,declaration,50,50,unit of the declared value
+declared_scope,declaration,50,50,"construct the declaration covers (total, random, envelope, ...)"
+declared_source_type,declaration,50,50,"kind of source: product field, document, mission requirement"
+declared_source,declaration,50,50,"where the number was read, in words"
+declared_doi,declaration,46,50,"DOI recorded with the declaration, resolvable or not"
+actual_value,measurement,29,50,measured error at the validation support
+actual_unit,measurement,50,50,unit of the measured error
+actual_metric,measurement,50,50,"statistic of the measured error (RMS, RMSE, ubRMSE, bias, ...)"
+actual_source,measurement,50,50,where the measured error comes from
+actual_doi,measurement,48,50,DOI or locator of the measured error
+ratio,ratio,14,50,"declared divided by actual, one direction for all rows"
+ratio_direction,ratio,50,50,direction of the unified ratio; always declared/actual
+ratio_original_stored,ratio,8,50,value as it appeared in the inherited table
+ratio_original_direction,ratio,8,50,direction of the inherited value
+ratio_relation,ratio,44,50,point estimate or lower bound
+prior_score,prior,50,50,"prior-dependence score, 0-4"
+prior_climatology_background,prior,50,50,score ingredient: climatological background
+prior_empirical_transfer,prior,50,50,score ingredient: empirically transferred relation
+prior_shared_auxiliary,prior,50,50,score ingredient: shared auxiliary dataset
+prior_assumed_model,prior,50,50,score ingredient: assumed physical or radiative model
+footprint_mismatch,legacy,50,50,"inherited single field for a support disagreement, superseded by C4a/C4b"
+object_matched,legacy,50,50,"inherited single field for C3, superseded by C3a/C3b"
+evidence_grade,legacy,50,50,A/B/C evidence grade of the measured value
+assessable,legacy,50,50,1 if the inherited rule admitted the object
+notes,legacy,50,50,free-text provenance note
+evidence_type,semantics,50,50,provenance class of the declared number
+evidence_detail,semantics,17,50,how the number was read from its source
+semantics_class,semantics,50,50,"total, random, envelope, ... : the construct actually declared"
+stage_declared,semantics,8,50,retrieval stage at which the declaration was made
+stage_actual,semantics,8,50,retrieval stage of the measured error
+scale_declared,semantics,14,50,spatial support of the declaration
+scale_actual,semantics,14,50,spatial support of the measurement
+log_ratio,semantics,14,50,natural log of the ratio
+ci_low,semantics,2,50,lower end of the ratio interval
+ci_high,semantics,2,50,upper end of the ratio interval
+ci_basis,semantics,3,50,how the interval was obtained
+quote_declared,provenance,25,50,reading taken at locator_declared (value string or quoted formula)
+quote_actual,provenance,30,50,reading taken at locator_actual
+locator_declared,provenance,25,50,"variable, attribute, table or section that holds the declaration"
+locator_actual,provenance,30,50,"file, table or paper that holds the measured error"
+doi_status_declared,provenance,50,50,"resolved, unresolvable or not applicable"
+doi_status_actual,provenance,50,50,"same, for the measured side"
+comparison_validity,provenance,50,50,"comparable, support mismatch or not comparable"
+in_A,membership,7,50,member of Set A (fully admitted)
+in_B,membership,10,50,member of Set B (support-caveated)
+in_C,membership,14,50,member of Set C (any ratio)
+reason_if_not_assessable,membership,36,50,why no ratio can be formed
+same_product,condition,17,50,C3a: declaration and validation name the same product and version
+same_statistic,condition,17,50,C3b: same statistical estimand
+support_stated,condition,17,50,C4a: the declaration states its support
+support_match,condition,14,50,C4b: that support is the one the validation measured
+source_resolved,condition,17,50,C2: the declaration resolves to a locator
+admission,verdict,50,50,"auditable, statistic_mismatch, support_mismatch, metric_not_exchangeable, no_declared_value"

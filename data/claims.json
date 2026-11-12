@@ -1,0 +1,177 @@
+{
+ "n_objects": 50,
+ "n_admitted": 17,
+ "n_ratio_definable": 14,
+ "n_auditable": 8,
+ "admission_counts": {
+  "no_declared_value": 33,
+  "auditable": 8,
+  "statistic_mismatch": 3,
+  "support_mismatch": 3,
+  "metric_not_exchangeable": 3
+ },
+ "no_declared_value": 33,
+ "no_measured_error": 21,
+ "footprint_mismatch_total": 32,
+ "footprint_mismatch_nonassessable": 24,
+ "families_total": 16,
+ "families_without_assessable": 10,
+ "families_with_assessable": 6,
+ "c2": {
+  "rows_total": 50,
+  "rows_admitted": 17,
+  "locator_declared_filled": 17,
+  "admitted_without_locator": [],
+  "rows_all_locators_total": 25
+ },
+ "same_product": {
+  "admitted_with_value": 17,
+  "nonassessable_with_value": 0,
+  "admitted_all_one": true
+ },
+ "core5": {
+  "n": 5,
+  "median": 0.8792,
+  "min": 0.5436,
+  "max": 1.0526,
+  "ids": [
+   "G02",
+   "G03",
+   "G04",
+   "G05",
+   "G06"
+  ]
+ },
+ "a7": {
+  "n": 7,
+  "geometric_mean": 0.8882375702008584,
+  "ci95": [
+   0.6266247512528683,
+   1.1396760849565846
+  ]
+ },
+ "a8": {
+  "n": 8,
+  "median": 1.0,
+  "min": 0.3448,
+  "max": 1.4286
+ },
+ "all14": {
+  "n": 14,
+  "geometric_mean": 0.7350730255542185,
+  "ci95": [
+   0.4958822003092518,
+   1.0110230319578717
+  ]
+ },
+ "sign_test": {
+  "parity": 3,
+  "under": 7,
+  "over": 4,
+  "p": 0.548828125
+ },
+ "stratified": {
+  "1": {
+   "n": 3,
+   "median": 1.0,
+   "geometric_mean": 0.8579688862392202,
+   "ids": [
+    "G04",
+    "G06",
+    "G15"
+   ]
+  },
+  "2": {
+   "n": 3,
+   "median": 1.4286,
+   "geometric_mean": 1.3504889422353632,
+   "ids": [
+    "G07",
+    "G08",
+    "G20"
+   ]
+  },
+  "3": {
+   "n": 8,
+   "median": 0.7213,
+   "geometric_mean": 0.552194893819949,
+   "ids": [
+    "G01",
+    "G02",
+    "G03",
+    "G05",
+    "G16",
+    "G17",
+    "G18",
+    "G19"
+   ]
+  }
+ },
+ "spearman": {
+  "rho": -0.49360929665176156,
+  "p": 0.07284841661004995
+ },
+ "prior_contrast": {
+  "n_low": 3,
+  "n_high": 11,
+  "geo_low": 0.8579688862392202,
+  "geo_high": 0.7047243697188091,
+  "log_diff": -0.19676107427829528,
+  "ci95_log": [
+   -0.7537413046018148,
+   0.3084658931851713
+  ],
+  "ratio": 0.8213868603182853,
+  "ratio_ci95": [
+   0.47060258740688343,
+   1.3613350779523579
+  ]
+ },
+ "ledger": {
+  "replace declared sigma with audited value": 6,
+  "use only with the statistic mismatch stated": 3,
+  "use only with the support mismatch stated": 3,
+  "do not use as a sigma; publish a declared value first": 3,
+  "retain declared value": 2
+ },
+ "g01": {
+  "declared": 0.0089,
+  "actual": 0.0915,
+  "ratio": 0.0973,
+  "factor": 10.280898876404494,
+  "stage_declared": "freeboard",
+  "stage_actual": "freeboard",
+  "actual_metric": "RMS of freeboard difference"
+ },
+ "g02": {
+  "declared": 0.6163,
+  "actual": 0.701,
+  "ratio": 0.8792,
+  "factor": 1.1374330683108875,
+  "stage_declared": "thickness",
+  "stage_actual": "thickness"
+ },
+ "ratio_of_ratios": 9.035971223021583,
+ "declared_ratio": 69.24719101123596,
+ "dictionary_groups": {
+  "identification": 5,
+  "declaration": 6,
+  "measurement": 5,
+  "ratio": 5,
+  "prior": 5,
+  "legacy": 5,
+  "semantics": 11,
+  "provenance": 7,
+  "membership": 4,
+  "condition": 5,
+  "verdict": 1
+ },
+ "c2_backfill_cells": 0,
+ "ledger_before": {
+  "replace declared sigma with audited value": 6,
+  "use only with the statistic mismatch stated": 3,
+  "use only with the support mismatch stated": 3,
+  "do not use as a sigma; publish a declared value first": 3,
+  "retain declared value": 2
+ }
+}

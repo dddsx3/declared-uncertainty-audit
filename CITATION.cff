@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this artefact, please cite the accompanying article and this repository."
+title: "Declared versus measured uncertainty: 50 declarations, their verification records and a correction ledger"
+abstract: >-
+  An audit of 50 published uncertainty declarations across 16 Earth-system variable families, with a five-condition admission checklist, 55 verification records and a 17-row correction ledger.
+type: software
+license: MIT
+repository-code: "https://github.com/dddsx3/declared-uncertainty-audit"
+authors:
+  - name: "The authors of the accompanying manuscript"
+keywords:
+  - "uncertainty"
+  - "Earth observation"
+  - "product validation"
+  - "audit"
+  - "metadata"
+version: "1.0.0"
+date-released: "2026-11-12"

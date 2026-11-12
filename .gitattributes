@@ -1,0 +1,9 @@
+# Normalise every text file to LF so the repository is identical on any platform.
+* text=auto eol=lf
+*.nc   binary
+*.npz  binary
+*.png  binary
+*.pdf  binary
+*.jpg  binary
+*.gz   binary
+*.zip  binary

@@ -1,0 +1,31 @@
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\begin{longtable}{@{}l p{2.05cm} p{1.6cm} p{1.6cm} r p{1.25cm} p{1.4cm} p{1.35cm}@{}}
+\caption{The 17-row correction ledger: declared value as published, audited reference error, unified ratio (declared divided by actual), direction, recommended use and provenance class. Use is derived from the audit verdict, so the ledger cannot recommend a record this paper refuses: \emph{replace} = the audited value supersedes the declared one; \emph{retain} = the declaration is confirmed; \emph{caveat} (stat.\ or supp.) = usable only with the stated statistic or support mismatch; \emph{no sigma} = the declaration cannot be exchanged with an error magnitude. A dash in the Ratio column marks a bound-only record, whose ratio is not a point estimate and is shown in Table~\ref{tab:2} and Fig.~\ref{fig:2}.}\label{tab:4}\\
+\toprule
+ID & Product & Declared & Audited & Ratio & Direction & Use & Source \\
+\midrule
+\endfirsthead
+\toprule
+ID & Product & Declared & Audited & Ratio & Direction & Use & Source \\
+\midrule
+\endhead
+G01 & ESA CCI Sea Ice Thickness (CryoSat-2,. & 0.0089 m & 0.0915 m & 0.0973 & under-report & caveat (stat.) & raw attribute \\
+G02 & ESA CCI Sea Ice Thickness (CryoSat-2,. & 0.6163 m & 0.701 m & 0.8792 & under-report & replace & raw attribute \\
+G03 & AWI CryoSat-2\slash SMOS weekly L4. & 0.1196 m & 0.22 m & -- & bound-only & caveat (stat.) & raw attribute \\
+G04 & SMAP L3 radiometer soil moisture. & 0.04 m3/m3 & 0.04 m3/m3 & 1.0000 & parity & retain & product doc. \\
+G05 & SMAP L4 surface soil moisture (L4\_SM) & 0.04 m3/m3 & 0.038 m3/m3 & 1.0526 & over-report & replace & product doc. \\
+G06 & MODIS Collection 6 3 km AOD. & 0.09 AOD & 0.15 AOD & 0.6000 & under-report & caveat (stat.) & recomp. \\
+G07 & MODIS Collection 6 LAI (MOD15A2H) & 0.5 LAI & 0.29 LAI & 1.7241 & over-report & caveat (supp.) & product doc. \\
+G08 & CMEMS\slash OSTIA reprocessed SST. & 0.1 K & 0.1 K & -- & bound-only & retain & product doc. \\
+G14 & MODIS LST (MOD21\slash MOD11) & 1.0 K & -- & -- & bound-only & no sigma & product doc. \\
+G15 & SMAP passive L2\slash L3 soil. & 0.040 m3/m3 & 0.038 m3/m3 & 1.0526 & over-report & replace & product doc. \\
+G16 & SMOS L2 soil moisture (MIRAS) & 0.04 m3/m3 & 0.044 m3/m3 & 0.9091 & under-report & replace & literature \\
+G17 & SMOS L3 soil moisture (Pernambuco,. & 0.04 m3/m3 & 0.071 m3/m3 & 0.5634 & under-report & caveat (supp.) & literature \\
+G18 & SMOS L3 soil moisture (Pernambuco,. & 0.04 m3/m3 & 0.04 m3/m3 & 1.0000 & parity & caveat (supp.) & literature \\
+G19 & SMOS L2 soil moisture (MIRAS) & 0.04 m3/m3 & 0.116 m3/m3 & 0.3448 & under-report & replace & literature \\
+G20 & MODIS MOD11 land surface temperature & 1.0 K & 0.7 K & 1.4286 & over-report & replace & product doc. \\
+G21 & SMOS thin sea ice thickness. & 1.0 m & 0.20 m & -- & bound-only & no sigma & raw attribute \\
+G39 & SMAP landscape freeze\slash thaw. & 0.80 fraction & 0.80+ fraction & -- & bound-only & no sigma & product doc. \\
+\bottomrule
+\end{longtable}
