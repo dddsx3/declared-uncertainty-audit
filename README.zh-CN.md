@@ -1,5 +1,10 @@
 # 地球观测产品：声明不确定度与实测误差
 
+<p align="center">
+  <a href="README.md"><img alt="English" src="https://img.shields.io/badge/lang-English-blue.svg"></a>
+  <a href="README.zh-CN.md"><img alt="简体中文" src="https://img.shields.io/badge/lang-%E4%B8%AD%E6%96%87-red.svg"></a>
+</p>
+
 [![License: MIT](https://img.shields.io/badge/licence-MIT-blue.svg)](LICENSE) [![Data: CC BY 4.0](https://img.shields.io/badge/data-CC%20BY%204.0-lightgrey.svg)](DATA_LICENSE) [![Python 3](https://img.shields.io/badge/python-3.10%2B-3776ab.svg)](https://www.python.org)
 
 几乎每个卫星产品都附带声明不确定度，而这个数字很少被拿去与独立验证对照。本仓就是这份审计：
