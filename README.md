@@ -1,51 +1,66 @@
 # Declared versus measured uncertainty in Earth observation products
 
+[![License: MIT](https://img.shields.io/badge/licence-MIT-blue.svg)](LICENSE) [![Data: CC BY 4.0](https://img.shields.io/badge/data-CC%20BY%204.0-lightgrey.svg)](DATA_LICENSE) [![Python 3](https://img.shields.io/badge/python-3.10%2B-3776ab.svg)](https://www.python.org)
+
 Nearly every satellite product ships a declared uncertainty, and that number is
 rarely checked against independent validation. This repository is the audit: 50
-declarations across 16 variable families, a five-condition admission checklist,
-55 verification records, and a 17-row correction ledger that a user can apply
-directly.
+declarations across 16 variable families, a five-condition admission checklist, 55
+verification records and a 17-row correction ledger a user can apply directly.
 
-## What is here
+![Ratio against prior dependence](docs/preview.png)
 
-    data/p3_dataset.csv            50 objects x 59 columns: declaration, locator,
-                                   reading, measured error, ratio, admission verdict
-    data/column_dictionary.csv     field-by-field definition of all 59 columns
-    data/p3_verification_log.csv   55 records: locator, quoted reading, DOI status
-    data/p3_declared_ledger.csv    the 17-row correction ledger (Table 4)
-    data/p3_reconciliation.csv     each object against the inherited core table
-    data/claims.json               every number the article quotes, recomputed
-    code/audit_claims.py           repairs the locator columns, derives the ledger
-                                   recommendation from the verdict, audits the text
+*Declared divided by measured, against the prior-dependence score. Most declarations
+under-report; the largest departures are all under-reports.*
+
+## What it settles
+
+| quantity | value |
+|---|---|
+| declared objects | 50, in 16 variable families |
+| auditable under all five conditions | 8 (16 %) |
+| verification records | 55 (27 inherited, 28 added) |
+| median ratio, five object-matched grade-A records | 0.879 (0.544–1.053) |
+| geometric mean, seven fully admitted | 0.888 (95 % CI 0.627–1.140) |
+| geometric mean, all ratio-definable | 0.735 (0.496–1.011) |
+
+## Contents
+
+    data/p3_dataset.csv           50 objects × 59 columns
+    data/column_dictionary.csv    field-by-field definition of all 59 columns
+    data/p3_verification_log.csv  55 records: locator, quoted reading, DOI status
+    data/p3_declared_ledger.csv   the 17-row correction ledger
+    data/p3_reconciliation.csv    each object against the inherited core table
+    data/claims.json              every number the article quotes
+    code/audit_claims.py          repairs locators, derives the ledger, audits the text
     code/analysis.py, figures.py, make_tables.py, build_dataset.py
-    tex/, figures/                 generated tables and figures
+    tex/, figures/                generated tables and figures
 
-## Run it
+## Quick start
 
     pip install numpy pandas scipy matplotlib
     python code/audit_claims.py --write
 
-The `--write` step is idempotent: the two files it edits are backed up once to
-`data/r12_baseline/`. Adding `--check-text` asserts 20 headline values against the
-manuscript; that flag needs the article source, so it is exercised in the paper
-package rather than here. The run prints, among others:
-
-    C2: 55 cells filled; 17 of 17 admitted rows carry a locator
-    families 16, without assessable 10, with 6
-    core5 median 0.879 [0.544, 1.053]
-    A7 geomean 0.888 CI (0.627, 1.140)
-    all14 geomean 0.735 CI (0.496, 1.011)
+The `--write` step is idempotent (the files it edits are backed up once to
+`data/r12_baseline/`). Adding `--check-text` asserts 20 headline values against the
+manuscript; that flag needs the article source, so it runs in the paper package.
 
 ## Reading the checklist
 
-A declaration is auditable when it states a number (C1), ties it to a locator and
-a reading (C2), refers to the same product and the same statistic (C3), states the
+A declaration is auditable when it states a number (C1), ties it to a locator and a
+reading (C2), refers to the same product and the same statistic (C3), states the
 support at which it was established (C4), and has an independent measured error at
-that support (C5). Eight of the 50 objects meet all five. The ledger's
-recommendation is derived from the verdict by one rule, so it cannot recommend a
-record the audit itself refuses.
+that support (C5). The ledger's recommendation is derived from the verdict by one
+rule, so it cannot recommend a record the audit itself refuses.
+
+## The paper
+
+*Declared but unverifiable: an audit of uncertainty declarations in Earth observation
+products* — submitted to the **International Journal of Remote Sensing**.
 
 ## Licence and citation
 
-Code MIT; the audit data CC BY 4.0 (see DATA_LICENSE). Cite the article and this
-repository.
+Code MIT (`LICENSE`), audit data CC BY 4.0 (`DATA_LICENSE`). Cite the article and this
+repository — see `CITATION.cff`.
+
+---
+[中文说明](README.zh-CN.md)
